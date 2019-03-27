@@ -1,6 +1,3 @@
-
-// C++ program for implementation of Newton Raphson Method for 
-// solving equations 
 #include<bits/stdc++.h> 
 #define EPSILON 0.00001 
 using namespace std; 
@@ -17,7 +14,7 @@ double derivFunc(double x)
     return 5*x*x*x*x - 30/9*x*x + 5/21; 
 } 
   
-//Funcao para achar raiz metodo de newton rap 
+//Funcao para achar raiz metodo de newton raphson 
 void newtonRaphson(double x) 
 { 
     double h = func(x) / derivFunc(x); 
@@ -28,14 +25,14 @@ void newtonRaphson(double x)
         // x(i+1) = x(i) - f(x) / f'(x)   
         x = x - h; 
     } 
-    cout.precision(10);
+    //cout.precision(10);
     cout << "The value of the root is : " << x << endl; 
 } 
   
-// Driver program to test above 
+
 int main() 
 { 
-    double x0 = -0.8; // Initial values assumed 
+    double x0 = -0.8; // valor inicial assumido
     newtonRaphson(x0); 
     return 0; 
 } 
