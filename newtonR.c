@@ -10,7 +10,7 @@ float f(float x) {		//f(x)
 }
 
 float der(float x) {
-	return 5*x*x*x*x - 6; // derivada de f(x).
+	return 5*x*x*x*x; // derivada de f(x).
 }
 
 int main() {
