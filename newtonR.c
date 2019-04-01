@@ -44,7 +44,7 @@ int main() {
 
 		iter[i+1] = iter[i] - f(iter[i])/der(iter[i]);
 		i++;
-	}while(Abs(f(iter[i])) > erro);  //uso da função abs para pegar o valor absuloto, assim podemos ter x0 negativos
+	}while(Abs(f(iter[i])) > erro);
 
 	printf("X ~= %f ", iter[i]);
 	printf("\nForam feitas %d iterações.\n",i);
