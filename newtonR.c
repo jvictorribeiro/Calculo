@@ -2,15 +2,15 @@
 #include <stdlib.h>
 
 float Abs( float x ){	//funcao para pegar o valor absoluto
-  return x >=0? x: -x;
+  return x >= 0 ? x: -x;
 }
 
 float f(float x) {		//f(x)
-	return x*x*x*x - 6*x*x*x + 10*x*x - 6*x + 9;
+	return x*x*x*x*x - 6;
 }
 
 float der(float x) {
-	return 4*x*x*x - 18*x*x + 20*x - 6; // derivada de f(x).
+	return 5*x*x*x*x - 6; // derivada de f(x).
 }
 
 int main() {
@@ -37,6 +37,7 @@ int main() {
 
 	// Iterações.
 	do{
+		printf("x%d ~= %f \n",i , iter[i]);
 		if(i > numIter) {
 			printf("Não convergiu em %d iterações!!!\n", numIter);
 			printf("Verifique o f(x).\n");
@@ -46,6 +47,6 @@ int main() {
 		i++;
 	}while(Abs(f(iter[i])) > erro);
 
-	printf("X ~= %f ", iter[i]);
+	printf("X convergiu para ~= %f ", iter[i]);
 	printf("\nForam feitas %d iterações.\n",i);
 }
