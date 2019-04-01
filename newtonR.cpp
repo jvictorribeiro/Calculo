@@ -1,38 +1,51 @@
-#include<bits/stdc++.h> 
-#define EPSILON 0.00001 
-using namespace std; 
-  
-//Escrever funcao manualmente aqui embaixo
-double func(double x) 
-{ 
-    return x*x*x*x*x - (10/9)*x*x*x + (5/21)*x; 
-} 
-  
-//Escrever derivada da funcao manualmente
-double derivFunc(double x) 
-{ 
-    return 5*x*x*x*x - 30/9*x*x + 5/21; 
-} 
-  
-//Funcao para achar raiz metodo de newton raphson 
-void newtonRaphson(double x) 
-{ 
-    double h = func(x) / derivFunc(x); 
-    while (abs(h) >= EPSILON) 
-    { 
-        h = func(x)/derivFunc(x); 
-   
-        // x(i+1) = x(i) - f(x) / f'(x)   
-        x = x - h; 
-    } 
-    //cout.precision(10);
-    cout << "The value of the root is : " << x << endl; 
-} 
-  
+#include <stdio.h>
+#include <stdlib.h>
 
-int main() 
-{ 
-    double x0 = -0.8; // valor inicial assumido
-    newtonRaphson(x0); 
-    return 0; 
-} 
+float Abs( float x ){	//funcao para pegar o valor absoluto
+  return x >=0? x: -x;
+}
+
+float f(float x) {		//f(x)
+	return x*x*x*x - 6*x*x*x + 10*x*x - 6*x + 9;
+}
+
+float der(float x) {
+	return 4*x*x*x - 18*x*x + 20*x - 6; // derivada de f(x).
+}
+
+int main() {
+	float erro, x0, *iter; // erro, valor incial, vetor iterações.
+	int i, numIter; // iteração atual, número de iterações.
+
+	printf("Método de Newton-Rhapson\n");
+	
+	printf("Digite o erro: \n");
+	scanf("%f",&erro);
+
+	printf("Digite o número máximo de iterações?\n");
+	scanf("%d", &numIter);
+
+	printf("Digite o X0? \n");
+	scanf("%f", &x0);
+
+	// Alocar dinâmicamente memória para o vetor das iterações.
+	iter = malloc(sizeof(float) * numIter);
+
+	// Condições iniciais.
+	iter[0] = x0;
+	i = 0;
+
+	// Iterações.
+	do{
+		if(i > numIter) {
+			printf("Não convergiu em %d iterações!!!\n", numIter);
+			printf("Verifique o f(x).\n");
+		}
+
+		iter[i+1] = iter[i] - f(iter[i])/der(iter[i]);
+		i++;
+	}while(Abs(f(iter[i])) > erro);  //uso da função abs para pegar o valor absuloto, assim podemos ter x0 negativos
+
+	printf("X ~= %f ", iter[i]);
+	printf("\nForam feitas %d iterações.\n",i);
+}
