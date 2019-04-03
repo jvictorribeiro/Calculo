@@ -47,7 +47,7 @@ def agentAspirador(ambiente):
 				secao[atual] = limpo
 				#se limpa, ganha +1 ponto
 				pontuacao += 1
-				print("Pontuacao do agente:", pontuacao)
+				print 'Pontuacao do agente:', pontuacao
 				atual += 1
 
 			else:	#se n for sujo salva o local atual, coloca o agente no local e depois restaura
@@ -58,7 +58,7 @@ def agentAspirador(ambiente):
 				time.sleep(0.5)
 				#se vai para lugar sem sujeira perde ponto
 				pontuacao += -1
-				print("Pontuacao do agente:", pontuacao)
+				print 'Pontuacao do agente:', pontuacao'
 				atual += 1
 				continue
 
