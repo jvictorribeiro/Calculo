@@ -56,8 +56,7 @@ def agentAspirador(ambiente):
 				pontuacao += -1
 				print 'Pontuacao do agente:', pontuacao
 				atual += 1
-				continue
-
+			
 	return ambiente
 
 #main
