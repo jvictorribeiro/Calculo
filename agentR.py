@@ -8,7 +8,7 @@ agente = "@"
 limpo = 0
 
 ambiente = [[1,4,0,0,2,0],
-			[0,0,3,1,0,4],			#definicao do ambiente de tarefa
+			[0,0,3,1,0,4],		#definicao do ambiente de tarefa
 			[0,1,0,0,2,0],
 			[0,0,2,1,0,1],
 			[2,0,1,0,0,4]]
@@ -20,7 +20,7 @@ def printar(ambiente):		#printa o ambiente
 	print("\n")
 
 
-def sujaAmbiente(ambiente):		#gera um ambiente com novas sujeiras
+def sujaAmbiente(ambiente):	#gera um ambiente com novas sujeiras
 	for secao in ambiente:
 		atual = 0
 		for local in secao:
@@ -37,7 +37,7 @@ def agentAspirador(ambiente):
 		atual = 0
 		for local in secao:
 
-			if local != limpo:		#se local for sujo, limpa
+			if local != limpo:	#se local for sujo, limpa
 
 				secao[atual] = agente
 
@@ -50,7 +50,7 @@ def agentAspirador(ambiente):
 				print("Pontuacao do agente:", pontuacao)
 				atual += 1
 
-			else:			#se n for sujo salva o local atual, coloca o agente no local e depois restaura
+			else:	#se n for sujo salva o local atual, coloca o agente no local e depois restaura
 				salva = secao[atual]
 				secao[atual] = agente
 				printar(ambiente)
