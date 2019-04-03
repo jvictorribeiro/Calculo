@@ -7,11 +7,11 @@ areiaMove = 1	#agente tem que pular
 buraco = 2		#agente deve tomar distancia e pular
 ouro = 3
 
-ambiente = [[0,1,0,0,2,0],
-			[0,0,0,1,0,1],			#definicao do ambiente de tarefa
-			[0,1,0,0,2,0],
-			[0,0,2,0,1,0],
-			[1,0,0,2,0,3]]
+ambiente = [[0,1,0,0,1,0],
+			[0,2,0,0,2,0],			#definicao do ambiente de tarefa
+			[0,1,0,0,1,0],
+			[0,2,0,0,2,0],
+			[0,1,0,0,1,3]]
 
 def printar(ambiente):		#printa o ambiente
 	for secao in ambiente:
@@ -31,13 +31,16 @@ def agent(ambiente):
 				printar(ambiente)
 				secao[atual] = caminho
 				time.sleep(1)
+				#se caminha ganha 1 ponto
+				pontuacao += 1
+				print ('Pontuacao do agente:', pontuacao)
 				atual += 1
 
 			#se local para onde ele está tentando ir for areia, ele pula
 			elif local == areiaMove:	
-				#se pula, ganha +3 ponto
-				pontuacao += 3
-				print ('Pontuacao do agente:', pontuacao)
+				#se pula, perde 1 pontos
+				pontuacao += -1
+				#print ('Pontuacao do agente:', pontuacao)
 				atual += 1
 
 			#se local for igual a buraco ele toma distancia e pula
@@ -52,14 +55,14 @@ def agent(ambiente):
 				printar(ambiente)
 				secao[atual-1] = salva
 				time.sleep(1)
-				#se volta para pular, perde 2 pontos e ganha 1 pelo pulo
-				pontuacao += 1
+				#se volta para pular, perde 3 pontos
 				pontuacao += -2
-				print ('Pontuacao do agente:', pontuacao)
+				print ('\nPontuacao do agente:', pontuacao)
 				atual += 1
 
-			else:
+			else:	#se pega o ouro ganha 5 pontos
 				print ('Agente conseguiu pegar o ouro')
+				pontuacao += 5
 				print ('Pontuacao final:', pontuacao)
 
 	return ambiente
