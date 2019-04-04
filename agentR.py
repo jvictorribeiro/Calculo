@@ -1,4 +1,7 @@
-#Agente reativo simples em python
+'''
+Agente reativo simples em python3
+compilar com python3 agentR.py
+'''
 import time 
 from random import randint
 
@@ -45,7 +48,7 @@ def agentAspirador(ambiente):
 				secao[atual] = limpo
 				#se limpa, ganha +1 ponto
 				pontuacao += 1
-				print 'Pontuacao do agente:', pontuacao
+				print ('Pontuacao do agente:', pontuacao)
 				atual += 1
 
 			elif (local == 5) or (local == 6) or (local == 7):
@@ -57,7 +60,7 @@ def agentAspirador(ambiente):
 				time.sleep(0.5)
 				#se vai para lugar sem sujeira perde ponto
 				pontuacao += -1
-				print 'Pontuacao do agente:', pontuacao
+				print ('Pontuacao do agente:', pontuacao)
 				atual += 1
 
 			#se n for sujo salva o local atual, coloca o agente no local e depois restaura
@@ -76,4 +79,4 @@ ambiente = sujaAmbiente(ambiente)	#novo ambiente sujo
 printar(ambiente)
 agentAspirador(ambiente)		
 printar(ambiente)
-print 'Numero de sujeiras:', numSujeira
+print ('Numero de sujeiras:', numSujeira)
